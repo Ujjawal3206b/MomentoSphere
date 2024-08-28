@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/existgrouppage.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="form-container">
+        <h1>Enter the Details of Group You Want to Join</h1>
+        <form action="/group/add" method="post">
+            <input type="hidden" name="userid" id="userid" value="<%= userid %>">
+
+            <label for="groupname">Group Name:</label>
+            <input type="text" name="groupname" id="groupname" required>
+
+            <label for="groupid">Group ID:</label>
+            <input type="text" name="groupid" id="groupid" required>
+
+            <button type="submit">Search Group</button>
+        </form>
+    </div>
+</body>
+</html>

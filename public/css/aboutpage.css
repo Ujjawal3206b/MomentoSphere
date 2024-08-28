@@ -1,0 +1,38 @@
+.about {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about li {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+.para_join{
+    color: cornflowerblue;
+    font-size: 1.8rem ;
+    margin-top: 2rem;
+}

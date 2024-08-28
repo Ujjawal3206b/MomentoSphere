@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos</title>
+    <link rel="stylesheet" href="/css/allPhotos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- <button class="sidebar-toggle">☰</button> -->
+     <%- include("includes/header.ejs") %>
+    <button class="sidebar-toggle"><i class="fa-solid fa-users-viewfinder"></i></button>
+    <div class="sidebar_menu">
+        <div class="show_members">
+            <h3><i class="fa-regular fa-users"></i>&nbsp;&nbsp;Members</h3>
+            <div class="memberlist">
+                <ul>
+                    <% members.forEach(member=>{ %>
+                        <li><%= member.username %> &nbsp;&nbsp; <i class="fa-duotone fa-solid fa-user-tie"></i> &nbsp;  <%= member.id %></li>    
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        <div class="login_logout">
+            
+            <a href="/"><i class="fa-regular fa-right-from-bracket"></i> &nbsp;SignOut</a>
+        </div>
+    </div>
+
+    <div class="main_content">
+        <div class="photo-container">
+            <% photos.forEach(photo => { %>
+                <div class="photo-card">
+                    <img src="data:photo/png;base64,<%= photo.image_blob.toString('base64') %>" alt="Image" loading="lazy"
+                    onclick='showImageDetails("<%= photo.image_blob.toString(`base64`) %>", `<%= photo.uploaded_at %>`,`<%= photo.user_id %>`)'>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <div id="image-modal" class="image-modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Large Image">
+            <div>
+            <p>Description:</p>
+            <p id="image-user" class="image-user"></p>
+            <p id="image-description" class="image-description"></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bar">
+        <footer>
+            <form action="/upload-photos" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <input type="file" name="photos" multiple>
+                <input type="hidden" name="group_id" value="<%= groupid %>">
+                <input type="hidden" name="user_id" value="<%= userid %>">
+                <input type="submit" value="Upload">
+            </form>
+        </footer>
+        <form action="/<%= userid %>/<%= groupid %>/leave" method="post">
+            <input type="hidden" name="userid" value="<%= userid %>">
+            <input type="hidden" name="groupid" value="<%= groupid %>">
+            <button class="leave-button">Leave Group</button>
+        </form>
+    </div>
+
+    <script src="/js/sidebarToggle.js"></script>
+</body>
+
+</html>
