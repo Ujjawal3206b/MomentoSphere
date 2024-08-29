@@ -7,7 +7,8 @@ Implemented features include user-friendly login and sign-up processes, secure d
 
 ## Screenshot
 
-![image](https://github.com/user-attachments/assets/5f4db868-38cf-40ff-a2ea-88a520240108)
+![image](https://github.com/user-attachments/assets/01912bc5-f5dc-46ce-a7b3-4a99b0a5b83b)
+
 
 ![image](https://github.com/user-attachments/assets/4a416aaa-18f1-4f30-901a-ca589449a85f)
 
